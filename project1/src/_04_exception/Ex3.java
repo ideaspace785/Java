@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.List;
 
 public class Ex3 {
         public static void main(String[] args) {
@@ -41,16 +42,23 @@ public class Ex3 {
                 scanner.close();
             }
         }
-
-
     // 중복된 요소 찾는 메소드
     private static ArrayList<Integer> findDuplicates(int[] arr) {
         ArrayList<Integer> duplicates = new ArrayList<>();
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = i+1; j < arr.length; j++) {
+                if(arr[i] == arr[j]) {
+                    if(!duplicates.contains(arr[i])) {
+                        duplicates.add(arr[i]);
+                        duplicates.add(arr[i]);
+                    }
+                    else
+                        duplicates.add(arr[i]);
+                }
+                i++;
+            }
+        }
         // TODO: 메소드 완성하기
-        int targetIdx=0;
-
-
         return duplicates;
-
-}
+        }
 }
